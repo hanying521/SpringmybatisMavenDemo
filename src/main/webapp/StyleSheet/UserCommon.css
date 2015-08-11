@@ -1,0 +1,324 @@
+﻿body {
+  font-family: 微软雅黑;
+  font-size: 13px;
+  line-height: 1.428571429;
+  color: #333333;
+  background-color: #ffffff;
+}
+.userUL>li {
+	line-height: 34px;
+	height: 34px;
+	border-left: 1px solid #DDD;
+	padding: 0;
+	position: relative;
+	float: left!important
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+
+a:focus,
+a:active,
+a:hover 
+{
+  color: #000;
+  text-decoration: none;
+}
+.MenuUL
+{
+    background: url('../Image/Common/menubg.png'); 
+}
+.MenuUL>li {
+	line-height: 36px;
+	height: 40px;
+	padding: 0;
+	position: relative;
+	width:100px;
+	float: left!important;
+	font-weight:bold;
+}
+
+.MenuUL>li>a:hover,.MenuUL>li>a:focus {
+	background: url('../Image/Common/menu_hoverbg.png');
+}
+
+.m_line{
+	float:left; 
+	width:1px; 
+	height:34px;
+	line-height:34px;   /*ff下有效(图片垂直居中)*/
+}
+.m_line img{
+	margin-top:expression(( 36 - this.height ) / 2);   /*ie下有效(图片垂直居中)*/
+}
+
+
+.block-content
+{
+    min-height:142px;
+}
+
+.btnimg
+{
+   cursor:pointer;
+}
+
+
+.ProductUL {
+	width: 900px; 
+	background-color:#000;
+	color:#fff;
+	margin-left:-200px;
+	opacity: 0.7;
+}
+
+.ProductUL>li a
+{
+    color:#fff;
+}
+
+.ProductUL>li a:focus
+{
+     background-color:transparent;
+}
+.ProductUL>li a:hover
+{
+     background-color:transparent;
+}
+
+
+.modal-header
+{
+    padding: 0!important;    
+}
+
+.modal-content
+{
+     background-color:transparent;    
+}
+
+#WeeklyModal .modal-dialog
+{
+    width: 900px;
+}
+
+#WeeklyModal .modal-header
+{
+    background:transparent;
+    height:30px;
+    border-bottom:0px;
+    
+}
+
+#WeeklyModal .modal-body
+{
+    background:transparent;
+    padding:0px;
+    height:600px;
+}
+
+#HonorModal .modal-dialog
+{
+    width: 292px;
+}
+
+#HonorModal .modal-header
+{
+    background:transparent;
+    height:30px;
+    border-bottom:0px;
+    
+}
+
+#HonorModal .modal-body
+{
+    background:transparent;
+    padding:0px;
+}
+
+#ProductParaModal .modal-dialog
+{
+    width: 480px;
+}
+
+#ProductParaModal .modal-header
+{
+    background:transparent;
+    height:30px;
+    border-bottom:0px;
+    
+}
+
+#ProductParaModal .modal-body
+{
+    background:transparent;
+    padding:0px;
+}
+
+.mousepositionimg
+{
+        border-top:4px; 
+        border-top-color:#ffc900; 
+        border-top-style:solid;
+        border-bottom:0px;
+        border-left:0px;
+        border-right:0px;
+}
+
+.positiontitle
+{
+    position:absolute; left:0; bottom:0; margin-left:30%; margin-bottom:50px;color:#fff;  font-size:16px; font-weight:bold;
+    }
+    
+    
+.ProductPageUL {
+	
+	color:#000;
+	opacity: 0.7;
+}
+
+.ProductPageUL>li
+{
+    list-style-type:none;
+}
+
+.ProductPageUL>li a
+{
+    color:#000;
+    font-size:14px;
+}
+
+.ProductPageUL>li a:focus
+{
+     background-color:transparent;
+}
+.ProductPageUL>li a:hover
+{
+     background-color:transparent;
+}
+
+.productlist-li
+{
+    height:156px; 
+    width: 210px; 
+    margin-left: 10px; 
+    margin-right: 10px;
+    text-align:center;
+}
+
+.product-title
+{
+    font-size: 13px; float: left; padding-left: 15px; padding-right: 15px;
+    text-align:left;
+    height: 35px;
+    width: 200px; 
+}
+
+.product-imgdisplay
+{
+    height: 130px; width: 210px;
+    margin-bottom: 0px;
+}
+
+
+/**/
+.mod_box {
+    font-size: 14px;
+    line-height: 24px;
+}
+.mod_box .th {
+    margin-bottom: 10px;
+}
+.mod_box .tb {
+    padding-bottom: 27px;
+}
+.mod_box .txt {
+    text-indent: 2em;
+}
+.mod_tit {
+    color: #5d9bcf;
+    font: 24px/35px "微软雅黑","宋体";
+}
+.mod_line {
+    border-top: 1px solid #ccdfed;
+    height: 15px;
+    margin-top: 15px;
+    position: relative;
+}
+.mod_line .mod_tit {
+    background-color: #fff;
+    left: 0;
+    padding-right: 10px;
+    position: absolute;
+    top: -20px;
+}
+.events_list {
+    line-height: 24px;
+}
+.events_list dt {
+    color: #9bcaf4;
+    float: left;
+    font-size: 16px;
+    padding-right: 12px;
+    position: relative;
+    text-align: right;
+    width: 76px;
+    z-index: 3;
+}
+.events_list .dot {
+    background-position: -1px -31px;
+    height: 14px;
+    overflow: hidden;
+    position: absolute;
+    right: -6px;
+    top: 6px;
+    width: 9px;
+}
+.events_list dd {
+    border-left: 3px solid #d7e9f9;
+    float: left;
+    padding: 0 0 20px 10px;
+    width: 659px;
+}
+.events_list p {
+    padding: 0 0 1px 58px;
+    position: relative;
+}
+.events_list .time {
+    background-position: -25px 0;
+    font-size: 12px;
+    height: 23px;
+    left: 0;
+    padding-left: 4px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 45px;
+}
+.events_list .first {
+    padding-top: 31px;
+}
+.events_list .start {
+    background-position: -4px 0;
+    height: 25px;
+    overflow: hidden;
+    position: absolute;
+    right: -3px;
+    top: -25px;
+    width: 3px;
+}
+.events_list .time, .events_list .dot, .events_list .start {
+    background: url("../Image/Common/skin_about.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+}

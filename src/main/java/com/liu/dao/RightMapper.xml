@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liu.dao.RightMapper" >
+  <resultMap id="BaseResultMap" type="com.liu.model.Right" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ParentID" property="parentid" jdbcType="INTEGER" />
+    <result column="Levels" property="levels" jdbcType="VARCHAR" />
+    <result column="Code" property="code" jdbcType="VARCHAR" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+    <result column="CSS" property="css" jdbcType="VARCHAR" />
+    <result column="Target" property="target" jdbcType="VARCHAR" />
+    <result column="SortNum" property="sortnum" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.liu.model.Right" extends="BaseResultMap" >
+    <result column="Remark" property="remark" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ParentID, Levels, Code, Name, URL, CSS, Target, SortNum
+  </sql>
+  <sql id="Blob_Column_List" >
+    Remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from right
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  
+   <select id="GetFirstLevelMenuByRoleCode" resultMap="ResultMapWithBLOBs" >
+    select 
+   a.id as ID,a.ParentID as ParentID,a.Levels as Levels ,a.Code as Code,a.Name as Name,a.URL as URL,a.CSS as CSS ,a.Target as Target,a.SortNum as SortNum
+    from `right` as a , roleright as b
+    where a.`code` = b.rightcode and length(a.`code`) = 3 and b.rolecode=#{code} order by a.`code` asc 
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from right
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.liu.model.Right" >
+    insert into right (ID, ParentID, Levels, 
+      Code, Name, URL, CSS, 
+      Target, SortNum, Remark
+      )
+    values (#{id,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, #{levels,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{css,jdbcType=VARCHAR}, 
+      #{target,jdbcType=VARCHAR}, #{sortnum,jdbcType=INTEGER}, #{remark,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liu.model.Right" >
+    insert into right
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="parentid != null" >
+        ParentID,
+      </if>
+      <if test="levels != null" >
+        Levels,
+      </if>
+      <if test="code != null" >
+        Code,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="url != null" >
+        URL,
+      </if>
+      <if test="css != null" >
+        CSS,
+      </if>
+      <if test="target != null" >
+        Target,
+      </if>
+      <if test="sortnum != null" >
+        SortNum,
+      </if>
+      <if test="remark != null" >
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="levels != null" >
+        #{levels,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="css != null" >
+        #{css,jdbcType=VARCHAR},
+      </if>
+      <if test="target != null" >
+        #{target,jdbcType=VARCHAR},
+      </if>
+      <if test="sortnum != null" >
+        #{sortnum,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liu.model.Right" >
+    update right
+    <set >
+      <if test="parentid != null" >
+        ParentID = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="levels != null" >
+        Levels = #{levels,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="css != null" >
+        CSS = #{css,jdbcType=VARCHAR},
+      </if>
+      <if test="target != null" >
+        Target = #{target,jdbcType=VARCHAR},
+      </if>
+      <if test="sortnum != null" >
+        SortNum = #{sortnum,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        Remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.liu.model.Right" >
+    update right
+    set ParentID = #{parentid,jdbcType=INTEGER},
+      Levels = #{levels,jdbcType=VARCHAR},
+      Code = #{code,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      CSS = #{css,jdbcType=VARCHAR},
+      Target = #{target,jdbcType=VARCHAR},
+      SortNum = #{sortnum,jdbcType=INTEGER},
+      Remark = #{remark,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liu.model.Right" >
+    update right
+    set ParentID = #{parentid,jdbcType=INTEGER},
+      Levels = #{levels,jdbcType=VARCHAR},
+      Code = #{code,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      CSS = #{css,jdbcType=VARCHAR},
+      Target = #{target,jdbcType=VARCHAR},
+      SortNum = #{sortnum,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
